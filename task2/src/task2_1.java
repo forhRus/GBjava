@@ -8,35 +8,55 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
 import java.util.Scanner;
-
+import java.io.IOException;
 public class task2_1 {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException{
         String pathLoad = "input.txt";
-        File fileLoad = new File(pathLoad);
         String pathSave = "output.txt";
-        File fileSave = new File(pathSave);
-        Scanner scan = new Scanner(fileLoad);
-        int[] arrayWithAB = getAb(fileLoad);
-        String result = getPowerString(arrayWithAB);
-        System.out.println(result);
-        PrintWriter pw = new PrintWriter(fileSave);
-        pw.println(result);
-        pw.close();
+        int[] arrayWithAB = getArgsFromFile(pathLoad);
+        int a = arrayWithAB[0];
+        int b = arrayWithAB[1];
+        String result = String.format("Число %s в степени %s: %s\n", a, b, getPowerString(a, b));
+        saveFile(pathSave, result);
     }
-    public static String getPowerString(int[] ab) {
+
+    //функция записывает результат в файл
+    public static void saveFile(String path, String data) {
+        File f = new File(path);
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(f,true);
+            fw.write(data);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace(); //бессовестно скопипастил
+            }
+        }
+    }
+
+    //  Проверка переменных для вычисления
+    public static String getPowerString(int a, int b) {
         String result = "";
-        if (ab[0] == 0 && ab[1] == 0) {
+        if (a == 0 && b == 0) {
             result = "Не определено";
-        } else if (ab[1] < 0) {
-            result = String.valueOf(1 / power(ab[0], ab[1]));
+        } else if (b < 0) {
+            result = String.valueOf(1 / power(a, b));
         } else {
-            result = String.valueOf(power(ab[0], ab[1]));
+            result = String.valueOf(power(a, b));
         }
         return result;
     }
-    public static int[] getAb(File f) throws FileNotFoundException {
+
+    //  Получение числа и степени из файла
+    public static int[] getArgsFromFile(String path) throws FileNotFoundException {
+        File f = new File(path);
         Scanner scan = new Scanner(f);
         int[] ab = new int[2];
         while(scan.hasNextLine()) {
@@ -52,6 +72,8 @@ public class task2_1 {
         scan.close();
         return ab;
     }
+
+    //  возведение числа в степень
     public static int power(int a, int n){
         if (n == 0) return 1;
         else if (n % 2 == 0) return power(a * a, n / 2);
