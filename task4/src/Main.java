@@ -1,12 +1,60 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String args[]) {
-        int arr[] = {14, 2, 4, 9, 7, 17, 8, 5, 6, 3, 7, 1};
-        sort(arr);
-        System.out.print("Отсортированный массив: ");
-        printArray(arr);
+    static int sort = 0;
+    private static Scanner input = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int lengthArray = getIntByUser("Задайте длину массива случайных чисел: ");
+        int[] unsortArray = new int[lengthArray];
+        int minNumber = getIntByUser("Задайте минимальную границу диапозона: ");
+        int maxNumber = getIntByUser("Задайте максимальную границу диапозона: ");
+        fillArrayRandomNumber(unsortArray, minNumber, maxNumber );
+        System.out.println();
+
+        System.out.println("Несортированный массив");
+        printArray(unsortArray);
+
+        heapSort(unsortArray);
+
+        System.out.println("Отсортированный массив: ");
+        printArray(unsortArray);
     }
 
-    static void sort(int arr[]) {
+    static void fillArrayRandomNumber(int[] arr, int min, int max) {
+        Random rand = new Random();
+        for (int i = 0; i < arr.length; i++) {
+
+//          кусок кода, для генерации массива с уникальными значениями. max должно быть больше длины массива
+//            while (true) {
+//                int num = rand.nextInt(min, max);
+//                boolean f = true;
+//                for (int item : arr) {
+//                    if (item == num) f = false;
+//                }
+//                if (f) {
+//                    arr[i] = num;
+//                    break;
+//                }
+//            }
+
+//            это надо закоментить, чтобы генерировать уникальные значения
+            arr[i] = rand.nextInt(min, max);
+        }
+    }
+    static int getIntByUser(String msg) {
+        while (true) {
+            System.out.print(msg);
+            if (input.hasNextInt()) {
+                return input.nextInt();
+            } else {
+                System.out.print("Ошибка ввода.");
+            }
+        }
+    }
+
+    static void heapSort(int arr[]) {
         int n = arr.length;
 
         for (int i = n / 2 - 1; i >= 0; i--){
@@ -44,9 +92,9 @@ public class Main {
     }
 
     static void printArray(int arr[]) {
-        for (int i = 0; i < arr.length; ++i){
-            System.out.print(arr[i] + " ");
+        for (int item:arr) {
+            System.out.print(item + " ");
         }
-        System.out.println();
+        System.out.println("\n");
     }
 }
