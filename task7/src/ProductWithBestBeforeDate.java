@@ -8,16 +8,6 @@ public class ProductWithBestBeforeDate extends Goods{
         this.date = date < 0 ? 0 : date;
     }
     public String toString() {
-        return String.format("%s, Срок год-ти: %d %s", super.toString(), this.date, getDay(this.date));
+        return String.format("%s, Срок год-ти: %d %s", super.toString(), this.date, super.getDay(this.date));
     }
-    private String getDay(int date) {
-        int d = date % 10;
-        if(d == 1)
-            return "день";
-        else if (d > 1 && d < 5)
-            return "дня";
-        else
-            return "дней";
-    }
-
 }

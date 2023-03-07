@@ -20,7 +20,6 @@ public class Goods {
         count = 0;
     }
 
-
     public Goods(String name, double price, int quantity, String unit) {
         this.id = generateId();
         this.name = name;
@@ -77,4 +76,13 @@ public class Goods {
         return count;
     }
 
+    public String getDay(int date) {
+        int d = date % 10;
+        if(d == 1)
+            return "день";
+        else if (d > 1 && d < 5)
+            return "дня";
+        else
+            return "дней";
+    }
 }

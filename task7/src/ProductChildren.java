@@ -4,6 +4,7 @@ public class ProductChildren extends Goods{
     enum Alergen {
         Да, Нет;
     }
+
     public ProductChildren(String name, double price, int quantity, String unit, int minAge, Alergen alergen) {
         super(name, price, quantity, unit);
         this.minAge = minAge < 0 ? 0 : minAge;
