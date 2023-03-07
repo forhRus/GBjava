@@ -59,7 +59,7 @@ public class Goods {
     @Override
     public String toString() {
 
-        String p = String.format("%d руб. %02d коп.", (int)this.price, (int)this.price%1*100);
+        String p = String.format("%d руб %02d коп", (int)this.price, (int)this.price%1*100);
         return String.format("id: %d, Наименование: %s, Цена: %s, Кол-во: %d %s",
                 this.id, this.name, p, this.quantity, this.unit);
     }

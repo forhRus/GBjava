@@ -4,6 +4,6 @@ public class Lemonade extends ProductWithVolume{
     }
 
     public String toString() {
-        return String.format("%s", super.toString());
+        return super.toString();
     }
 }

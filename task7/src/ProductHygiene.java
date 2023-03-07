@@ -6,6 +6,6 @@ public class ProductHygiene extends Goods{
     }
 
     public String toString() {
-        return String.format("%s (x%dшт).", super.toString(), this.countInPack);
+        return String.format("%s, в упаковке %dшт.", super.toString(), this.countInPack);
     }
 }
