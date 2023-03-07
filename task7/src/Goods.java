@@ -11,11 +11,10 @@ import java.util.HashMap;
 public class Goods {
     protected static ArrayList <Integer> listId;
     private static int count;
-    protected int id;
-    protected String name;
+    protected int id, quantity;
+    protected String name, unit;
     protected double price;
-    protected int quantity;
-    protected String unit;
+
     static {
         listId = new ArrayList<>();
         count = 0;
@@ -23,12 +22,15 @@ public class Goods {
 
 
     public void Goods(String name, double price, int quantity, String unit) {
-        this.id = 0;
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.unit = unit;
-
+        if(name.isEmpty()) {
+            System.out.println("Ошибка ввода. Отсутствует наименование товара.");
+        } else {
+            this.id = generateId();
+            this.name = name;
+            setPrice(price);
+            this.quantity = quantity < 0 ? 0 : quantity;
+            this.unit = unit;
+        }
     }
 
     public void Goods(String name, double price, int quantity) {
@@ -41,21 +43,18 @@ public class Goods {
         this.Goods(name, 0, 0, "not indicated");
     }
     public void Goods() {
-        this.Goods("no name", 0, 0, "not indicated");
+        this.Goods("", 0, 0, "not indicated");
     }
 
 
     public void setPrice(double price) {
-        this.price = price;
+        this.price = price < 0 ? 0 : price;
     }
 
     public void addQuantity(int quantity) {
-        if(quantity < 0) {
-            this.quantity -= quantity;
-            if (this.quantity < 0) this.quantity = 0;
-        } else {
-            this.quantity += quantity;
-        }
+        this.quantity = quantity < 0 ?
+                this.quantity - quantity :
+                this.quantity + quantity;
     }
 
     @Override
@@ -71,7 +70,8 @@ public class Goods {
             }
         } else {
             listId.add(++count);
-            return count;
         }
+        return count;
     }
+
 }
