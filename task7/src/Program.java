@@ -8,7 +8,7 @@ public class Program {
         System.out.println(child);
         Goods milk = new Milk("Молоко \"Домик в деревне\"", 100, 3, "уп", 1, 3.57, 17);
         System.out.println(milk);
-        Goods milk = new Milk("Молоко \"Домик в деревне\"", 100, 3, "уп", 1, 3.57, 17);
-        System.out.println(milk);
+        Goods cola = new Lemonade("Напиток \"Coca-Cola\"", 120, 6, "шт", 2);
+        System.out.println(cola);
     }
 }
