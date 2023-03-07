@@ -10,7 +10,11 @@ public class Program {
         System.out.println(milk);
         Goods cola = new Lemonade("Напиток \"Coca-Cola\"", 120, 6, "шт", 2);
         System.out.println(cola);
-        Goods bread = new Bread("Хлеб", 120, 6, "шт", 2, "Ржаной");
+        Goods bread = new Bread("Хлеб", 120, 6, "шт", 5, "Ржаной");
         System.out.println(bread);
+        Goods egg = new Egg("Яйцо", 115, 100, "уп", 24, 10);
+        System.out.println(egg);
+        Goods paper = new ToiletPaper("т/б \"Zewa\"", 185, 41, "уп", 4, 3);
+        System.out.println(paper);
     }
 }

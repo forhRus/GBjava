@@ -1,11 +1,11 @@
 public class ProductHygiene extends Goods{
-    private int count;
-    public ProductHygiene(String name, double price, int quantity, String unit, int count) {
+    private int countInPack;
+    public ProductHygiene(String name, double price, int quantity, String unit, int countInPack) {
         super(name, price, quantity, unit);
-        this.count = count < 0 ? 0 : count;
+        this.countInPack = countInPack < 0 ? 0 : countInPack;
     }
 
     public String toString() {
-        return String.format("%s, Объём: %d шт.", super.toString(), this.count);
+        return String.format("%s (x%dшт).", super.toString(), this.countInPack);
     }
 }
