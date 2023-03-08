@@ -1,3 +1,5 @@
+package Goods;
+
 public class Milk extends ProductWithVolume{
     private int date;
     private double procent;

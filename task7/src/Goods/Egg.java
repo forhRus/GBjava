@@ -1,3 +1,5 @@
+package Goods;
+
 public class Egg extends ProductWithBestBeforeDate{
     private int count;
     public Egg(String name, double price, int quantity, String unit, int date, int count) {

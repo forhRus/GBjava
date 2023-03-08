@@ -1,4 +1,6 @@
-public class ProductWithVolume extends Goods{
+package Goods;
+
+public class ProductWithVolume extends Good {
     protected int volume;
 
     public ProductWithVolume(String name, double price, int quantity, String unit, int volume) {

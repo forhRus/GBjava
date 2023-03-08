@@ -1,4 +1,6 @@
-public class ProductHygiene extends Goods{
+package Goods;
+
+public class ProductHygiene extends Good {
     private int countInPack;
     public ProductHygiene(String name, double price, int quantity, String unit, int countInPack) {
         super(name, price, quantity, unit);

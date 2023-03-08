@@ -1,5 +1,6 @@
+package Goods;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Класс товар, содержащий следующие свойства:
@@ -8,7 +9,7 @@ import java.util.HashMap;
  * 3. Количество
  * 4. Единица измерения
  */
-public class Goods {
+public class Good {
     private static ArrayList<Integer> listId;
     private static int count;
     private int id, quantity;
@@ -20,7 +21,7 @@ public class Goods {
         count = 0;
     }
 
-    public Goods(String name, double price, int quantity, String unit) {
+    public Good(String name, double price, int quantity, String unit) {
         this.id = generateId();
         this.name = name;
         setPrice(price);
@@ -29,19 +30,19 @@ public class Goods {
 
     }
 
-    public Goods(String name, double price, int quantity) {
+    public Good(String name, double price, int quantity) {
         this(name, price, quantity, "not indicated");
     }
 
-    public Goods(String name, double price) {
+    public Good(String name, double price) {
         this(name, price, 0, "not indicated");
     }
 
-    public Goods(String name) {
+    public Good(String name) {
         this(name, 0, 0, "not indicated");
     }
 
-    public Goods() {
+    public Good() {
         this("", 0, 0, "not indicated");
     }
 

@@ -1,3 +1,5 @@
+package Goods;
+
 public class ToiletPaper extends ProductHygiene {
     private int numberOfLayers;
     public ToiletPaper(String name, double price, int quantity, String unit, int count, int numberOfLayers) {

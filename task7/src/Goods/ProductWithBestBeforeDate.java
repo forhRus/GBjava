@@ -1,6 +1,8 @@
+package Goods;
+
 // * Продукты питания, содержащие следующие свойства:
 //      * Срок годности
-public class ProductWithBestBeforeDate extends Goods{
+public class ProductWithBestBeforeDate extends Good {
     protected int date;
 
     public ProductWithBestBeforeDate(String name, double price, int quantity, String unit, int date) {

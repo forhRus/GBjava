@@ -1,7 +1,9 @@
-public class ProductChildren extends Goods{
+package Goods;
+
+public class ProductChildren extends Good {
     private int minAge;
     private Alergen alergen;
-    enum Alergen {
+    public enum Alergen {
         Да, Нет;
     }
 

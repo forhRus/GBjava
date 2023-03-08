@@ -1,3 +1,5 @@
+package Goods;
+
 public class Bread extends ProductWithBestBeforeDate {
     private String typeFlour;
 

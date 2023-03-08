@@ -1,3 +1,5 @@
+package Goods;
+
 public class Diaper extends ProductChildren{
     private int size;
     private int minWeight;

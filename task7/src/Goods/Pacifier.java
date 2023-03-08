@@ -1,3 +1,5 @@
+package Goods;
+
 public class Pacifier extends ProductChildren {
 
 
