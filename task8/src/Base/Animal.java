@@ -1,3 +1,5 @@
+package Base;
+
 public abstract class Animal {
     int height;
     int weight;
