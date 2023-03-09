@@ -14,7 +14,7 @@ public abstract class Animal {
     }
     public void makeSound(){}
     public String getInfo() {
-        return String.format("Информация о животном. рост: %f, вес: %f," +
+        return String.format("Информация о животном. рост: %.f, вес: %.f," +
                 " цвет глаз: %s", this.height, this.weight, this.colorEye);
     }
 }
