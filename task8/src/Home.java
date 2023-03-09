@@ -3,5 +3,6 @@ public interface Home {
     void setBreed();
     void setIsVaccination();
     void setBirthday();
+    void weasel();
 
 }
