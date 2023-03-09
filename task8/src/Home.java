@@ -4,5 +4,4 @@ public interface Home {
     void setIsVaccination();
     void setBirthday();
     void weasel();
-
 }
