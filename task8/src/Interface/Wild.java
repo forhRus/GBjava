@@ -1,4 +1,4 @@
-package Base;
+package Interface;
 
 public interface Wild {
     void setHabitat(String local);

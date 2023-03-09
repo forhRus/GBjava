@@ -1,21 +1,17 @@
 import Base.*;
-public class Cat extends Animal implements IsWool, Home{
-    String colorWool;
+import Interface.Home;
+
+public class CatHome extends Cat implements Home {
     String name;
     String breed;
     Vac vac;
     String dateBirthday;
-    public Cat(int height, int weight, String colorEye, String colorWool, String name, String breed, Vac vac, String dateBirthday) {
-        super(height,weight, colorEye);
-        setColorWool(colorWool);
+    public CatHome(int height, int weight, String colorEye,  String colorWool, String name, String breed, Vac vac, String dateBirthday) {
+        super(height,weight, colorEye, colorWool);
         setName(name);
         setBirthday(breed);
         setIsVaccination(vac);
         setBirthday(dateBirthday);
-    }
-    @Override
-    public void setColorWool(String colorWool) {
-        this.colorWool = colorWool;
     }
     @Override
     public void setName(String name) {
@@ -36,5 +32,12 @@ public class Cat extends Animal implements IsWool, Home{
     @Override
     public String weasel() {
         return "=^_^= Хозяин, дай жрать!";
+    }
+    public String getInfo() {
+        return String.format("%s, Домашний питомец: %s, Порода: %s, Дата рож: %s," +
+                " Вакцицинация: %s", super.getInfo(), this.name, this.breed, this.dateBirthday, this.vac);
+    }
+    public void makeSound(CatHome cat){
+        System.out.println("Мяу");
     }
 }

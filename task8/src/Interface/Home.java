@@ -1,4 +1,4 @@
-package Base;
+package Interface;
 
 public interface Home {
     public enum Vac{
