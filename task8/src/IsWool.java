@@ -1,3 +1,3 @@
 public interface IsWool {
-    void setWool();
+    void setColorWool();
 }
