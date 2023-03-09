@@ -2,7 +2,7 @@ package Base;
 import Interface.IsWool;
 
 
-public class Cat extends Animal implements IsWool {
+public abstract class Cat extends Animal implements IsWool {
     String colorWool;
     public Cat(int height, int weight, String colorEye, String colorWool) {
         super(height,weight, colorEye);
