@@ -1,10 +1,12 @@
 package Base;
 
+import classes.PetCat;
+
 public abstract class Animal {
-    int height;
-    int weight;
+    double height;
+    double weight;
     String colorEye;
-    public Animal(int height, int weight, String colorEye) {
+    public Animal(double height, double weight, String colorEye) {
         this.height = height;
         this.weight = weight;
         this.colorEye = colorEye;
@@ -12,9 +14,10 @@ public abstract class Animal {
     public Animal() {
         this(0, 0, "empty");
     }
-    public void makeSound(){}
+
     public String getInfo() {
-        return String.format("Информация о животном. рост: %.f, вес: %.f," +
-                " цвет глаз: %s", this.height, this.weight, this.colorEye);
+        return String.format("Информация о животном. рост: %.1f см, вес: %.1f кг, " +
+                "цвет глаз: %s", this.height, this.weight, this.colorEye);
     }
+    public void makeSound(){}
 }

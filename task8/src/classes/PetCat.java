@@ -1,3 +1,5 @@
+package classes;
+
 import Base.*;
 import Interface.Home;
 
@@ -6,10 +8,10 @@ public class PetCat extends Cat implements Home {
     String breed;
     Vac vac;
     String dateBirthday;
-    public PetCat(int height, int weight, String colorEye, String colorWool, String name, String breed, Vac vac, String dateBirthday) {
+    public PetCat(double height, double weight, String colorEye, String colorWool, String name, String breed, Vac vac, String dateBirthday) {
         super(height,weight, colorEye, colorWool);
         setName(name);
-        setBirthday(breed);
+        setBreed(breed);
         setIsVaccination(vac);
         setBirthday(dateBirthday);
     }
@@ -30,14 +32,13 @@ public class PetCat extends Cat implements Home {
         this.dateBirthday = dateBirthday;
     }
     @Override
-    public String weasel() {
-        return "=^_^= Хозяин, дай жрать!";
-    }
+    public void weasel() {
+        System.out.printf("%s: ^_^ Хозяин, дай пожрать!\n", this.name);}
     public String getInfo() {
-        return String.format("%s, Домашний питомец: %s, Порода: %s, Дата рож: %s," +
-                " Вакцицинация: %s", super.getInfo(), this.name, this.breed, this.dateBirthday, this.vac);
+        return String.format("Домашняя кошка.\nКличка: %s, Порода: %s, Дата рож: %s," +
+                " Вакцицинация: %s,\n%s", this.name, this.breed, this.dateBirthday, this.vac, super.getInfo());
     }
-    public void makeSound(PetCat cat){
-        System.out.println("Мяу");
+    public void makeSound(){
+        System.out.println("Кошка: Мяу");
     }
 }

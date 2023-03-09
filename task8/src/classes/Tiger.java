@@ -1,10 +1,12 @@
+package classes;
+
 import Base.Cat;
 import Interface.Wild;
 
 public class Tiger extends Cat implements Wild {
     String local;
     String date;
-    public Tiger(int height, int weight, String colorEye, String colorWool, String local, String date) {
+    public Tiger(double height, double weight, String colorEye, String colorWool, String local, String date) {
         super(height, weight, colorEye, colorWool);
         setHabitat(local);
         setLocationDate(date);
@@ -21,9 +23,9 @@ public class Tiger extends Cat implements Wild {
     }
 
     public String getInfo() {
-        return String.format("%s, Место обитания: %s, Последняя дата: %s", super.getInfo(), this.local, this.date);
+        return String.format("Тигр.\nМесто обитания: %s, Последняя дата: %s\n%s", this.local, this.date, super.getInfo());
     }
     public void makeSound(){
-        System.out.println("Rrrrrr-rr");
+        System.out.println("Тигр: Rrrrrr-rr");
     }
 }
