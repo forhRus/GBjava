@@ -5,6 +5,7 @@ import Interface.IsFly;
 public abstract class Bird extends Animal implements IsFly{
     double altitude;
 
+
     public Bird(double height, double weight, String colorEye, double altitude) {
         super(height, weight, colorEye);
         setFlightAltitude(altitude);
@@ -24,6 +25,6 @@ public abstract class Bird extends Animal implements IsFly{
 
     @Override
     public void getInfoFlight() {
-        System.out.printf("взлетает на %.1f метров\n", this.altitude);
+        System.out.printf("Эта птица взлетает на %.1f метров\n",  this.altitude);
     }
 }
