@@ -1,5 +1,5 @@
 package interfaceFigure;
 
 public interface LengthCircle {
-    double length();
+    double getLength();
 }

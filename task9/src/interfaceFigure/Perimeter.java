@@ -1,5 +1,5 @@
 package interfaceFigure;
 
 public interface Perimeter {
-    double perimeter();
+    int getPerimeter();
 }
