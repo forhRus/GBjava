@@ -1,12 +1,6 @@
-import classesFigure.Circle;
-import classesFigure.Quadrate;
-import classesFigure.Rectangle;
-import classesFigure.Triangular;
-
+import classesFigure.*;
 import classesFigure.base.Figure;
-import interfaceFigure.LengthCircle;
-import interfaceFigure.Perimeter;
-
+import interfaceFigure.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,10 +10,11 @@ import java.util.Scanner;
  * Коллекция
  * figures - создаём коллекцию фигур при создании объекта
  * addFigure - добавить фигуру
- * printInfoFigure - вывод инфо (периметр или длина окружности в зависимости от интерфейса)
+ * private printInfoFigure - вывод инфо (периметр или длина окружности в зависимости от интерфейса)
  * printInfoAllFigures - вывод информации о всех фигурах в коллекции
  * removeFigure - удалить фигуру из коллеции по индексу
- *
+ * private void addChangeFigure - заменяет фигуру, если она благополучно создана
+ * changeFigure
  * checkIndex - проверка на наличие элемента в коллекции
  */
 public class Collection {

@@ -1,7 +1,5 @@
 package classesFigure;
 
-import classesFigure.Parameters.Parameter;
-import classesFigure.Parameters.Side;
 import classesFigure.base.Polygon;
 
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ public class Triangular extends Polygon {
         l.add(sideC);
         if (checkPositiveList(l) && checkSides(sideA, sideB, sideC)) {
             super.name = "Треугольник";
-            parameters = l;
+            super.parameters = l;
             super.perimeter = calculationPerimeter();
             super.square = calculateSquare(sideA, sideB, sideC);
         } else {

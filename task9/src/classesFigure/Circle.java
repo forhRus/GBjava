@@ -4,7 +4,6 @@ package classesFigure;
 import classesFigure.base.Figure;
 import interfaceFigure.LengthCircle;
 
-
 public class Circle extends Figure implements LengthCircle {
     private double length;
 

@@ -1,6 +1,5 @@
 package classesFigure;
 
-import classesFigure.Parameters.Side;
 import classesFigure.base.Quadrilateral;
 
 public class Rectangle extends Quadrilateral {
