@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Figure implements Square, Comparable<Figure> {
+
     protected List<Integer> parameters = new ArrayList<>();
     protected String name;
     protected double square;

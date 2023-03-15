@@ -1,9 +1,4 @@
 package classesFigure.base;
-
-
-import classesFigure.Parameters.Parameter;
-import classesFigure.Parameters.Side;
-
 import java.util.ArrayList;
 import java.util.List;
 
