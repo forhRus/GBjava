@@ -8,5 +8,7 @@ public class Program {
         CustomArray customArr = new CustomArray<>(num, numD, str, cat);
         customArr.add(c);
         System.out.println(customArr);
+        customArr.remove(1);
+        System.out.println(customArr);
     }
 }

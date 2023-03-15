@@ -33,6 +33,12 @@ public class CustomArray<T> {
             System.out.println("Нельзя добавить null");
         }
     }
+    public void remove(int index) {
+        if (index > -1 && index < customArr.size() )
+            customArr.remove(index);
+        else
+            System.out.println("Элемента с таким индексом не существует");
+    }
 
     @Override
     public String toString() {
@@ -62,5 +68,10 @@ public class CustomArray<T> {
             return null;
         }
     }
-
+    private boolean checkIndex(int i) {
+        if (i > -1 && i < customArr.size() )
+            return true;
+        else
+            return false;
+    }
 }
