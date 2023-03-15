@@ -39,21 +39,42 @@ public class CustomArray<T> {
         else
             System.out.println("Элемента с таким индексом не существует");
     }
+    public void removeAllContainingElement(T o){
+        while (customArr.contains(o)) {
+            customArr.remove(o);
+        }
+    }
+    public int indexOf(T o) {
+        for (int i = 0; i < customArr.size(); i++) {
+            if(customArr.get(i).equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public boolean contain(T o) {
+        for (int i = 0; i < customArr.size(); i++) {
+            if(customArr.get(i).equals(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder("[");
         if(customArr.size() > 0) {
-            res.append(checkElement(customArr.get(0)));
+            res.append(elementToString(customArr.get(0)));
         }
         for (int i = 1; i < customArr.size(); i++) {
             res.append(", ");
-            res.append(checkElement(customArr.get(i)));
+            res.append(elementToString(customArr.get(i)));
         }
         res.append("]");
         return res.toString();
     }
-    private String checkElement(T o) {
+    private String elementToString(T o) {
         String res = "";
         if(o instanceof Integer || o instanceof Double){
             return o.toString();

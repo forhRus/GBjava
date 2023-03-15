@@ -22,6 +22,7 @@ public class Cat {
         return height;
     }
 
+
     public int getAge() {
         return age;
     }
@@ -43,5 +44,22 @@ public class Cat {
                 ", weight=" + weight +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Cat) {
+            Cat t = (Cat)obj;
+            if(t.name == this.name
+            && t.age == this.age
+            && t.color == this.color
+            && t.height == this.height
+            && t.weight == this.weight) {
+                return true;
+            } else
+                return false;
+
+        } else
+            return false;
     }
 }
