@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Program {
@@ -10,25 +11,28 @@ public class Program {
         Cat cat2 = new Cat("Барсик", 200, 5, 2, "серый");
         Cat cat3 = new Cat("Мурзик", 180, 3, 1, "черный");
 
-        CustomArray customArr = new CustomArray<>(num, numD, num,  cat1);
-        customArr.add(c);
-        customArr.add(str);
-        System.out.println(customArr);
+        List<Object> myArray = new ArrayList<>();
+        myArray.add(num);
+        myArray.add(numD);
+        myArray.add(str);
+        myArray.add(num);
+        myArray.add(c);
+        myArray.add(cat1);
 
-        System.out.println(customArr.indexOf(cat1));
-        System.out.println(customArr.contain(cat3));
+        CustomArray testArr = new CustomArray(myArray);
+        testArr.add(5);
+        System.out.printf("Длина массива: %d\n",testArr.size());
+        System.out.println(testArr);
 
-        customArr.remove(0);
-        customArr.removeAllContainingElement(5);
+        System.out.println(testArr.indexOf(cat1));
+        System.out.println(testArr.contain(cat3));
 
-        System.out.println(customArr);
+        testArr.remove(1);
+        testArr.removeAllContainingElement(5);
+        testArr.removeAllContainingElement(cat2);
+        System.out.println(testArr);
 
-
-
-
-
-
-
+        System.out.printf("Получение элементак по индексу: %s\n", testArr.get(1));
 
     }
 }

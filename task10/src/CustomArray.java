@@ -5,39 +5,40 @@ import java.util.List;
 
 public class CustomArray<T> {
     private List<T> customArr;
+    private int size;
 
-    public CustomArray(T o, T o1, T o2, T o3) {
+    public CustomArray(List<T> arr) {
+        size = 0;
         this.customArr = new ArrayList<>();
-        add(o);
-        add(o1);
-        add(o2);
-        add(o3);
-    }
-    public CustomArray(T o, T o1, T o2) {
-        this(o, o1, o2, null);
-    }
-    public CustomArray(T o, T o1) {
-        this(o, o1, null, null);
-    }
-    public CustomArray(T o) {
-        this(o, null, null, null);
+        for (T el: arr) {
+            this.customArr.add(el);
+            size++;
+        }
     }
 
     public CustomArray() {
+        size = 0;
+        this.customArr = new ArrayList<>();
     }
 
     public void add(T o) {
         if(o != null) {
             customArr.add(o);
+            size++;
         } else {
             System.out.println("Нельзя добавить null");
         }
     }
     public void remove(int index) {
-        if (index > -1 && index < customArr.size() )
+        if (index > -1 && index < customArr.size() ){
             customArr.remove(index);
+            size--;
+        }
         else
             System.out.println("Элемента с таким индексом не существует");
+    }
+    public int size(){
+        return this.size;
     }
     public void removeAllContainingElement(T o){
         while (customArr.contains(o)) {
@@ -95,4 +96,17 @@ public class CustomArray<T> {
         else
             return false;
     }
+    public T get(int index) {
+        if(checkIndex(index)) {
+            return customArr.get(index);
+        } else {
+            String error = "Элеменат с таким индексом не существует";
+            return (T)error;
+        }
+    }
+//    public void setElement(int index, T obj) {
+//        if (checkIndex(index)) {
+//            customArr.get(index) = obj;
+//        }
+//    }
 }
