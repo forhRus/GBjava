@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomArray<T> {
-    List<T> customArr;
+    private List<T> customArr;
 
     public CustomArray(T o, T o1, T o2, T o3) {
         this.customArr = new ArrayList<>();
@@ -24,4 +24,9 @@ public class CustomArray<T> {
 
     public CustomArray() {
     }
+
+    public void add(T o) {
+        if(o != null) customArr.add(o);
+    }
+
 }
