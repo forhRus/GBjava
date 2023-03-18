@@ -65,9 +65,8 @@ public class Program {
         // сортировка простыми вставками (работает)
 //        myList2.insertionSort();
 
-
         // сортирвока выбором
-//        myList2.insertionSort();
+//        myList2.selectionSort();
 
         // удаление объекта по значению
 //        myList2.add(4,5);
