@@ -70,14 +70,17 @@ public class Program {
 //        myList2.insertionSort();
 
         // удаление объекта по значению
-        myList2.add(4,5);
-        myList2.add(2,5);
+//        myList2.add(4,5);
+//        myList2.add(2,5);
 //        myList2.remove((Integer) 5);
 
         // удаление всех объектов с заданным значением
-        myList2.removeAllContainedElements(5);
+//        myList2.removeAllContainedElements(5);
 
         System.out.println(myList2);
+        System.out.println(myList2.maxElement()); //  myList2.add(index, value)
+        System.out.println(myList2.minElement()); // Cat{name="Барсик", color="серый", height=200, weight=5, age=2} - вес 5
+
 
 
     }

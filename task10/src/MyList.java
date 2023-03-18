@@ -122,6 +122,27 @@ public class MyList<T> {
         return this.size;
     }
 
+
+    // максимальный и минимальный элемент в списке
+    public Object minElement(){
+        int minIndex = 0;
+        for (int i = 1; i < this.size; i++) {
+            if(valueElement(this.array[minIndex]) > valueElement(this.array[i])){
+                minIndex = i;
+            }
+        }
+        return this.array[minIndex];
+    }
+    public Object maxElement(){
+        int maxIndex = 0;
+        for (int i = 1; i < this.size; i++) {
+            if(valueElement(this.array[maxIndex]) < valueElement(this.array[i])){
+                maxIndex = i;
+            }
+        }
+        return this.array[maxIndex];
+    }
+
     // очистить лист
     public void clean(Object[] obj) {
         this.array = new Object[DEFAULT_LENGTH];
