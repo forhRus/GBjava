@@ -91,16 +91,16 @@ public class  MyList <T>{
     }
 
 
-//    public void remove(int index) {
-//       if(checkIndex(index)) {
-//           for (int i = 0; i < ; i++) {
-//
-//           }
-//           array.remove(index);
-//           size--;
-//       }
-//
-//    }
+    public void remove(int index) {
+       if(checkIndex(index)) {
+           for (int i = index; i < this.size-1; i++) {
+                this.array[i] = this.array[i+1];
+           }
+           this.size--;
+           this.array[this.size] = null;
+       }
+
+    }
     public int size(){
         return this.size;
     }

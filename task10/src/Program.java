@@ -34,7 +34,9 @@ public class Program {
         //тест методов
         myList2.set(0, "set");
         myList2.add(1, "addIndex");
-        System.out.println(myList2.size());
+        myList2.remove(4);
+        
+
         System.out.println(myList2);
 
 
