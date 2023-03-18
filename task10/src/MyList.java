@@ -102,6 +102,21 @@ public class MyList<T> {
 
     }
 
+    public void remove(T obj) {
+        for (int i = 0; i < this.size; i++) {
+            if(this.array[i].equals(obj)){
+                remove(i);
+                break;
+            }
+        }
+    }
+
+    public void removeAllContainedElements(T obj) {
+        while (contain(obj)) {
+            remove(obj);
+        }
+    }
+
     // размер листа
     public int size() {
         return this.size;

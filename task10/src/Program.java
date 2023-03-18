@@ -69,6 +69,14 @@ public class Program {
         // сортирвока выбором
 //        myList2.insertionSort();
 
+        // удаление объекта по значению
+        myList2.add(4,5);
+        myList2.add(2,5);
+//        myList2.remove((Integer) 5);
+
+        // удаление всех объектов с заданным значением
+        myList2.removeAllContainedElements(5);
+
         System.out.println(myList2);
 
 
