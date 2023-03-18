@@ -1,62 +1,105 @@
 public class  MyList <T>{
-    private Object[] list;
+    private Object[] array;
     final private int DEFAULT_LENGTH = 10;
     final private Object[] EMPTY_ARRAY = {};
     private int size;
 
+    // Создание листа заданной длинны
     public MyList(int length) {
         if(length > 0) {
-            this.list = new Object[length];
+            this.array = new Object[length];
         } else if (length == 0) {
-            this.list = new Object[DEFAULT_LENGTH];
+            this.array = new Object[DEFAULT_LENGTH];
         } else {
             System.out.println("Длина меньше нуля. Пока не умею обрабатывать ошибки!");
         }
     }
 
-//     public MyList(List<Object> list) {
-//         for (int i = 0; i < list.size(); i++) {
-//             add(list.get(i));
-//         }
-//    }
+    //  Создание листа из массива
+     public MyList(Object[] arr) {
+        int length = arr.length;
+        this.array = new Object[(int)(length*1.5)];
+         for (int i = 0; i < length; i++) {
+             add(arr[i]);
+         }
+    }
 
+    // дефолтный конструктор листа
     public MyList() {
-        this.list = new Object[DEFAULT_LENGTH];
+        this.array = new Object[DEFAULT_LENGTH];
         this.size = 0;
     }
 
+    //  получение массива из листа
+    public Object[] toArray() {
+        Object[] arr = new Object[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = this.array[i];
+        }
+        return arr;
+    }
+
+    // добавление элемента в лист
     public void add(Object obj) {
+        checkLength();
         if(obj != null) {
-            list[size] = obj;
+            array[size] = obj;
             size++;
         } else {
             System.out.println("Нельзя добавить null");
         }
     }
 
-//    public void add(int index, T obj) {
-//        if(checkIndex(index)) {
-//            this.customArr.add(index, obj);
-//        } else {
-//            String error = "Элеменат с таким индексом не существует";
-//        }
-//
-//    }
-//    public void set(int index, T obj) {
-//        if(checkIndex(index)) {
-//            this.customArr.set(index, obj);
-//        } else {
-//            String error = "Элеменат с таким индексом не существует";
-//        }
-//
-//    }
+    //  проверяем, надо ли увеличить массив
+    private void checkLength(){
+        if(this.size == this.array.length) {
+            Object[] newArray = new Object[(int)(this.size*1.5)];
+            this.array = copy(this.array, newArray);
+        }
+    }
+
+    // Добавление элемента по индексу
+    public void add(int index, T obj) {
+        if(checkIndex(index)) {
+            checkLength();
+            for (int i = this.size; i > index; i--) {
+                this.array[i] = this.array[i-1];
+            }
+            this.array[index] = obj;
+            size++;
+        }
+    }
+
+    //  Присваиваем элементу с индексом нвоое значение
+    public void set(int index, T obj) {
+        if(checkIndex(index)) {
+            this.array[index] = obj;
+        }
+    }
+
+
+    // кпирование масивов для увеличение листа, если он заполнен
+   private Object[] copy(Object[] arr, Object[] result) {
+        for (int i = 0; i < result.length; i++) {
+            if (i < arr.length) {
+                result[i] = arr[i];
+            } else {
+                result[i] = null;
+            }
+        }
+        return result;
+    }
+
+
 //    public void remove(int index) {
-//        if (index > -1 && index < customArr.size() ){
-//            customArr.remove(index);
-//            size--;
-//        }
-//        else
-//            System.out.println("Элемента с таким индексом не существует");
+//       if(checkIndex(index)) {
+//           for (int i = 0; i < ; i++) {
+//
+//           }
+//           array.remove(index);
+//           size--;
+//       }
+//
 //    }
     public int size(){
         return this.size;
@@ -87,11 +130,11 @@ public class  MyList <T>{
     public String toString() {
         StringBuilder result = new StringBuilder("[");
         if(this.size > 0) {
-            result.append(elementToString(this.list[0]));
+            result.append(elementToString(this.array[0]));
         }
         for (int i = 1; i < this.size; i++) {
             result.append(", ");
-            result.append(elementToString(this.list[i]));
+            result.append(elementToString(this.array[i]));
         }
         result.append("]");
         return result.toString();
@@ -111,20 +154,21 @@ public class  MyList <T>{
             return null;
         }
     }
-//    private boolean checkIndex(int i) {
-//        if (i > -1 && i < customArr.size() )
-//            return true;
-//        else
-//            return false;
-//    }
-//    public T get(int index) {
-//        if(checkIndex(index)) {
-//            return customArr.get(index);
-//        } else {
-//            String error = "Элеменат с таким индексом не существует";
-//            return (T)error;
-//        }
-//    }
+    private boolean checkIndex(int i) {
+        if (i > -1 && i < this.size)
+            return true;
+        else
+            System.out.println("Элеменат с таким индексом не существует");
+            return false;
+    }
+    public Object get(int index) {
+        if(checkIndex(index)) {
+            return this.array[index];
+        } else {
+            String error = "Элеменат с таким индексом не существует";
+            return (Object) error;
+        }
+    }
 
 
 }

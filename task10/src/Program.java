@@ -1,9 +1,13 @@
-import java.math.RoundingMode;
+import java.util.Arrays;
 
 public class Program {
     public static void main(String[] args) {
-        int textLength = 15;
+
+        // Создаём лист определённого размера
+        int textLength = 6;
         MyList<Object> myList1 = new MyList<>(textLength);
+
+        //  Заполняем массив элементами разных типов.
         for (int i = 0; i < textLength; i++) {
             if (i % 4 == 0) {
                 double a = (double) ((int) (i * 2.12 * 100)) / 100;;
@@ -16,14 +20,25 @@ public class Program {
                 myList1.add(i);
             }
         }
+
+        // делаем из myLista обычный массив
+        Object[] arr = myList1.toArray();
+
+        // создаем лист из массива
+        MyList<Object> myList2 = new MyList<>(arr);
+
+        //вывод содержимого листа на экран
         System.out.println(myList1);
+        // [0.0, 1, "Строка 2", Cat{name="Барсик", color="серый", height=200, weight=5, age=2}, 8.48, 5]
 
-
-        MyList<Object> myList2 = new MyList<>();
-        myList2.add(123);
-        myList2.add(22);
-        myList2.add(33);
+        //тест методов
+        myList2.set(0, "set");
+        myList2.add(1, "addIndex");
         System.out.println(myList2.size());
+        System.out.println(myList2);
+
+
+
 
 
     }
