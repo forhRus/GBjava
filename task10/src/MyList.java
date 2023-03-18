@@ -113,24 +113,24 @@ public class  MyList <T>{
         this.size = 0;
     }
 
-    
-//    public int indexOf(T obj) {
-//        for (int i = 0; i < customArr.size(); i++) {
-//            if(customArr.get(i).equals(obj)) {
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
-//    public boolean contain(T obj) {
-//        for (int i = 0; i < customArr.size(); i++) {
-//            if(customArr.get(i).equals(obj)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
+
+    public int indexOf(T obj) {
+        for (int i = 0; i < this.size; i++) {
+            if(array[i].equals(obj)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public boolean contain(T obj) {
+        for (int i = 0; i < customArr.size(); i++) {
+            if(customArr.get(i).equals(obj)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("[");
