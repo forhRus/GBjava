@@ -10,7 +10,8 @@ public class Program {
         //  Заполняем массив элементами разных типов.
         for (int i = 0; i < textLength; i++) {
             if (i % 4 == 0) {
-                double a = (double) ((int) (i * 2.12 * 100)) / 100;;
+                double a = (double) ((int) (i * 2.12 * 100)) / 100;
+                ;
                 myList1.add(a);
             } else if (i % 3 == 0) {
                 myList1.add(new Cat());
@@ -62,12 +63,13 @@ public class Program {
 //        myList2.bubbleSotr();
 
         // сортировка простыми вставками (работает)
+//        myList2.insertionSort();
+
+
+        // сортирвока выбором
+//        myList2.insertionSort();
+
         System.out.println(myList2);
-        myList2.insertionSort();
-        System.out.println(myList2);
-
-
-
 
 
     }

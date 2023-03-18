@@ -1,5 +1,3 @@
-import jdk.dynalink.support.AbstractRelinkableCallSite;
-
 public class MyList<T> {
     private Object[] array;
     final private int DEFAULT_LENGTH = 10;
@@ -115,7 +113,7 @@ public class MyList<T> {
         this.size = 0;
     }
 
-
+    // вернуть индекс искомого элемента
     public int indexOf(T obj) {
         for (int i = 0; i < this.size; i++) {
             if (array[i].equals(obj)) {
@@ -125,6 +123,7 @@ public class MyList<T> {
         return -1;
     }
 
+    // содержиться ли элемент в списке
     public boolean contain(T obj) {
         for (int i = 0; i < this.size; i++) {
             if (array[i].equals(obj)) {
@@ -141,29 +140,50 @@ public class MyList<T> {
                 double value = valueElement(array[j]);
                 double nextValue = valueElement(array[j + 1]);
                 if (value > nextValue) {
-                    Object temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+                    swapElement(j, j + 1);
                 }
             }
         }
     }
 
-    // сортиовка простым вставками
+    // сортировка простым вставками
     public void insertionSort() {
-        boolean f = false;
         for (int i = 1; i < size; i++) {
             double value = valueElement(array[i]);
             Object tempO = array[i];
-            int index = i-1;
+            int index = i - 1;
             while (index >= 0 && value < valueElement(array[index])) {
-                array[index+1] = array[index];
+                array[index + 1] = array[index];
                 index--;
             }
-            array[index+1] = tempO;
+            array[index + 1] = tempO;
         }
     }
 
+    // сортировка выбором
+    public void selectionSort() {
+
+        for (int i = 0; i < this.size - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < this.size; j++) {
+                if (valueElement(array[minIndex]) > valueElement(array[j])) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                swapElement(minIndex, i);
+            }
+        }
+    }
+
+    // свап для сортировок
+    private void swapElement(int i, int j) {
+        Object temp = this.array[i];
+        this.array[i] = this.array[j];
+        this.array[j] = temp;
+    }
+
+    //  определение значения для сравнивания объектов и арифметичческих действий
     private double valueElement(Object obj) {
         if (obj instanceof String) {
             return (double) ((String) obj).length();
@@ -178,6 +198,8 @@ public class MyList<T> {
             return 0.0;
         }
     }
+
+
 
     @Override
     public String toString() {
