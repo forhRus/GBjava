@@ -50,16 +50,15 @@ public class Cat {
     public boolean equals(Object obj) {
         if(obj instanceof Cat) {
             Cat t = (Cat)obj;
-            if(t.name == this.name
+            return t.name == this.name
             && t.age == this.age
             && t.color == this.color
             && t.height == this.height
-            && t.weight == this.weight) {
-                return true;
-            } else
-                return false;
-
+            && t.weight == this.weight;
         } else
             return false;
+    }
+    public int hashCode() {
+        return  weight;
     }
 }
