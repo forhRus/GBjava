@@ -143,6 +143,24 @@ public class MyList<T> {
         return this.array[maxIndex];
     }
 
+    public double sumElements(){
+        double result = 0;
+        for (int i = 0; i < this.size ; i++) {
+            double v = valueElement(this.array[i]);
+            System.out.print(v + ", ");
+            result += v;
+        }
+        System.out.println();
+        return  result;
+    }
+    public double productElements(){
+        double result = 1;
+        for (int i = 0; i < this.size ; i++) {
+            result *=valueElement(this.array[i]);
+        }
+        return  result;
+    }
+
     // очистить лист
     public void clean(Object[] obj) {
         this.array = new Object[DEFAULT_LENGTH];

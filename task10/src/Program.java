@@ -81,7 +81,10 @@ public class Program {
         System.out.println(myList2.maxElement()); //  myList2.add(index, value)
         System.out.println(myList2.minElement()); // Cat{name="Барсик", color="серый", height=200, weight=5, age=2} - вес 5
 
-
+//        ["myList2.set()", "myList2.add(index, value)", "Строка 2", Cat{name="Барсик", color="серый", height=200, weight=5, age=2}, 8.48, 5]
+//        13.0, 25.0, 8.0, 5.0, 8.48, 5.0
+        System.out.println(myList2.sumElements()); // 64.48
+        System.out.println(myList2.productElements()); // 551200.0
 
     }
 }
