@@ -32,11 +32,11 @@ public class Program {
         // [0.0, 1, "Строка 2", Cat{name="Барсик", color="серый", height=200, weight=5, age=2}, 8.48, 5]
 
         //тест методов
-        myList2.set(0, "set");
-        myList2.add(2, "addIndex");
+        myList2.set(0, "myList2.set()");
+        myList2.add(2, "myList2.add(index, value)");
         myList2.remove(1);
 //        ["set", "addIndex", "Строка 2", Cat{name="Барсик", color="серый", height=200, weight=5, age=2}, 8.48, 5]
-
+//        ["myList2.set()", "myList2.add(index, value)", "Строка 2", Cat{name="Барсик", color="серый", height=200, weight=5, age=2}, 8.48, 5]
 
         System.out.println(myList2.indexOf("set")); // 0
         System.out.println(myList2.indexOf(1));     // -1
@@ -47,8 +47,16 @@ public class Program {
         System.out.println(myList2.indexOf(8.48));  // 4
         System.out.println(myList2.indexOf(5));     // 5
 
+        System.out.println(myList2.contain("set")); // true
+        System.out.println(myList2.contain(1));     // false
+        System.out.println(myList2.contain(
+                new Cat("Мурзик", 200, 5, 2, "серый"))); //false
+        System.out.println(myList2.contain(
+                new Cat("Барсик", 200, 5, 2, "серый"))); //true
+        System.out.println(myList2.contain(8.48));  // true
+        System.out.println(myList2.contain(5));     // true
 
-
+        myList2.bubbleSotr();
         System.out.println(myList2);
 
 

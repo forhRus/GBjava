@@ -123,14 +123,40 @@ public class  MyList <T>{
         return -1;
     }
     public boolean contain(T obj) {
-        for (int i = 0; i < customArr.size(); i++) {
-            if(customArr.get(i).equals(obj)) {
+        for (int i = 0; i < this.size; i++) {
+            if(array[i].equals(obj)) {
                 return true;
             }
         }
         return false;
     }
-
+    public void bubbleSotr() {
+        for (int i = size - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                double value = valueElement(array[j]);
+                double nextValue = valueElement(array[j+1]);
+                if(value > nextValue) {
+                    Object temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }
+    }
+    private double valueElement(Object obj) {
+        if(obj instanceof String) {
+            return (double)((String) obj).length();
+        } else if( obj instanceof Cat) {
+            Cat c = (Cat) obj;
+            return (double)c.getWeight();
+        } else if ( obj instanceof Integer) {
+            return (int)obj * 1.;
+        } else if (obj instanceof Double){
+            return (double) obj;
+        } else {
+            return 0.0;
+        }
+    }
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("[");
