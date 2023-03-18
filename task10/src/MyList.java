@@ -1,4 +1,6 @@
-public class  MyList <T>{
+import jdk.dynalink.support.AbstractRelinkableCallSite;
+
+public class MyList<T> {
     private Object[] array;
     final private int DEFAULT_LENGTH = 10;
     final private Object[] EMPTY_ARRAY = {};
@@ -6,7 +8,7 @@ public class  MyList <T>{
 
     // Создание листа заданной длинны
     public MyList(int length) {
-        if(length > 0) {
+        if (length > 0) {
             this.array = new Object[length];
         } else if (length == 0) {
             this.array = new Object[DEFAULT_LENGTH];
@@ -16,12 +18,12 @@ public class  MyList <T>{
     }
 
     //  Создание листа из массива
-     public MyList(Object[] arr) {
+    public MyList(Object[] arr) {
         int length = arr.length;
-        this.array = new Object[(int)(length*1.5)];
-         for (int i = 0; i < length; i++) {
-             add(arr[i]);
-         }
+        this.array = new Object[(int) (length * 1.5)];
+        for (int i = 0; i < length; i++) {
+            add(arr[i]);
+        }
     }
 
     // дефолтный конструктор листа
@@ -42,7 +44,7 @@ public class  MyList <T>{
     // добавление элемента в лист
     public void add(Object obj) {
         checkLength();
-        if(obj != null) {
+        if (obj != null) {
             array[size] = obj;
             size++;
         } else {
@@ -51,19 +53,19 @@ public class  MyList <T>{
     }
 
     //  проверяем, надо ли увеличить массив
-    private void checkLength(){
-        if(this.size == this.array.length) {
-            Object[] newArray = new Object[(int)(this.size*1.5)];
+    private void checkLength() {
+        if (this.size == this.array.length) {
+            Object[] newArray = new Object[(int) (this.size * 1.5)];
             this.array = copy(this.array, newArray);
         }
     }
 
     // Добавление элемента по индексу
     public void add(int index, T obj) {
-        if(checkIndex(index)) {
+        if (checkIndex(index)) {
             checkLength();
             for (int i = this.size; i > index; i--) {
-                this.array[i] = this.array[i-1];
+                this.array[i] = this.array[i - 1];
             }
             this.array[index] = obj;
             size++;
@@ -72,14 +74,14 @@ public class  MyList <T>{
 
     //  Присваиваем элементу с индексом нвоое значение
     public void set(int index, T obj) {
-        if(checkIndex(index)) {
+        if (checkIndex(index)) {
             this.array[index] = obj;
         }
     }
 
 
     // кпирование масивов для увеличение листа, если он заполнен
-   private Object[] copy(Object[] arr, Object[] result) {
+    private Object[] copy(Object[] arr, Object[] result) {
         for (int i = 0; i < result.length; i++) {
             if (i < arr.length) {
                 result[i] = arr[i];
@@ -92,23 +94,23 @@ public class  MyList <T>{
 
     // удаление элемента по индексу
     public void remove(int index) {
-       if(checkIndex(index)) {
-           for (int i = index; i < this.size-1; i++) {
-                this.array[i] = this.array[i+1];
-           }
-           this.size--;
-           this.array[this.size] = null;
-       }
+        if (checkIndex(index)) {
+            for (int i = index; i < this.size - 1; i++) {
+                this.array[i] = this.array[i + 1];
+            }
+            this.size--;
+            this.array[this.size] = null;
+        }
 
     }
 
     // размер листа
-    public int size(){
+    public int size() {
         return this.size;
     }
 
     // очистить лист
-    public void clean(Object[] obj){
+    public void clean(Object[] obj) {
         this.array = new Object[DEFAULT_LENGTH];
         this.size = 0;
     }
@@ -116,51 +118,71 @@ public class  MyList <T>{
 
     public int indexOf(T obj) {
         for (int i = 0; i < this.size; i++) {
-            if(array[i].equals(obj)) {
+            if (array[i].equals(obj)) {
                 return i;
             }
         }
         return -1;
     }
+
     public boolean contain(T obj) {
         for (int i = 0; i < this.size; i++) {
-            if(array[i].equals(obj)) {
+            if (array[i].equals(obj)) {
                 return true;
             }
         }
         return false;
     }
+
+    // сортировка пузырьком
     public void bubbleSotr() {
         for (int i = size - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 double value = valueElement(array[j]);
-                double nextValue = valueElement(array[j+1]);
-                if(value > nextValue) {
+                double nextValue = valueElement(array[j + 1]);
+                if (value > nextValue) {
                     Object temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
     }
+
+    // сортиовка простым вставками
+    public void insertionSort() {
+        boolean f = false;
+        for (int i = 1; i < size; i++) {
+            double value = valueElement(array[i]);
+            Object tempO = array[i];
+            int index = i-1;
+            while (index >= 0 && value < valueElement(array[index])) {
+                array[index+1] = array[index];
+                index--;
+            }
+            array[index+1] = tempO;
+        }
+    }
+
     private double valueElement(Object obj) {
-        if(obj instanceof String) {
-            return (double)((String) obj).length();
-        } else if( obj instanceof Cat) {
+        if (obj instanceof String) {
+            return (double) ((String) obj).length();
+        } else if (obj instanceof Cat) {
             Cat c = (Cat) obj;
-            return (double)c.getWeight();
-        } else if ( obj instanceof Integer) {
-            return (int)obj * 1.;
-        } else if (obj instanceof Double){
+            return (double) c.getWeight();
+        } else if (obj instanceof Integer) {
+            return (int) obj * 1.;
+        } else if (obj instanceof Double) {
             return (double) obj;
         } else {
             return 0.0;
         }
     }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("[");
-        if(this.size > 0) {
+        if (this.size > 0) {
             result.append(elementToString(this.array[0]));
         }
         for (int i = 1; i < this.size; i++) {
@@ -170,30 +192,33 @@ public class  MyList <T>{
         result.append("]");
         return result.toString();
     }
+
     private String elementToString(Object obj) {
         String res = "";
-        if(obj instanceof Integer || obj instanceof Double){
+        if (obj instanceof Integer || obj instanceof Double) {
             return obj.toString();
         } else if (obj instanceof Character) {
             return String.format("'%s'", obj);
-        }else if (obj instanceof String) {
+        } else if (obj instanceof String) {
             return String.format("\"%s\"", obj);
-        }else if (obj instanceof Cat) {
+        } else if (obj instanceof Cat) {
             Cat cat = (Cat) obj;
             return cat.toString();
         } else {
             return null;
         }
     }
+
     private boolean checkIndex(int i) {
         if (i > -1 && i < this.size)
             return true;
         else
             System.out.println("Элеменат с таким индексом не существует");
-            return false;
+        return false;
     }
+
     public Object get(int index) {
-        if(checkIndex(index)) {
+        if (checkIndex(index)) {
             return this.array[index];
         } else {
             String error = "Элеменат с таким индексом не существует";

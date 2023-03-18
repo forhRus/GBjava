@@ -46,6 +46,7 @@ public class Program {
                 new Cat("Барсик", 200, 5, 2, "серый"))); //3
         System.out.println(myList2.indexOf(8.48));  // 4
         System.out.println(myList2.indexOf(5));     // 5
+        System.out.println("___________________");
 
         System.out.println(myList2.contain("set")); // true
         System.out.println(myList2.contain(1));     // false
@@ -55,8 +56,14 @@ public class Program {
                 new Cat("Барсик", 200, 5, 2, "серый"))); //true
         System.out.println(myList2.contain(8.48));  // true
         System.out.println(myList2.contain(5));     // true
+        System.out.println("___________________");
 
-        myList2.bubbleSotr();
+//        сортирвока пузырьком (работает)
+//        myList2.bubbleSotr();
+
+        // сортировка простыми вставками (работает)
+        System.out.println(myList2);
+        myList2.insertionSort();
         System.out.println(myList2);
 
 
