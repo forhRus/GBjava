@@ -35,7 +35,7 @@ public class Program {
         myList2.set(0, "set");
         myList2.add(1, "addIndex");
         myList2.remove(4);
-        
+
 
         System.out.println(myList2);
 

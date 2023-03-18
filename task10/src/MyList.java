@@ -90,7 +90,7 @@ public class  MyList <T>{
         return result;
     }
 
-
+    // удаление элемента по индексу
     public void remove(int index) {
        if(checkIndex(index)) {
            for (int i = index; i < this.size-1; i++) {
@@ -101,14 +101,19 @@ public class  MyList <T>{
        }
 
     }
+
+    // размер листа
     public int size(){
         return this.size;
     }
-//    public void removeAllContainingElement(T obj){
-//        while (customArr.contains(obj)) {
-//            customArr.remove(obj);
-//        }
-//    }
+
+    // очистить лист
+    public void clean(Object[] obj){
+        this.array = new Object[DEFAULT_LENGTH];
+        this.size = 0;
+    }
+
+    
 //    public int indexOf(T obj) {
 //        for (int i = 0; i < customArr.size(); i++) {
 //            if(customArr.get(i).equals(obj)) {
