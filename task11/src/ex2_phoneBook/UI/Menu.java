@@ -1,4 +1,4 @@
-package ex2_phoneBook;
+package ex2_phoneBook.UI;
 
 import java.util.ArrayList;
 import java.util.List;

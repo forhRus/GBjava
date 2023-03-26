@@ -1,13 +1,11 @@
-package ex2_phoneBook;
-
-import java.util.Comparator;
+package ex2_phoneBook.base;
 
 public class Contact  {
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String comment;
-    static final int stringLength = 16, numberLength = 12;
+    public static final int stringLength = 16, numberLength = 12;
 
     public Contact(String firstName, String secondName, String phoneNumber, String comment) {
         this.firstName = firstName;

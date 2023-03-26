@@ -1,6 +1,11 @@
-package ex2_phoneBook;
+package ex2_phoneBook.UI;
 
-import java.beans.XMLEncoder;
+import ex2_phoneBook.DB.Config;
+import ex2_phoneBook.MVP.Model;
+import ex2_phoneBook.MVP.Presenter;
+import ex2_phoneBook.MVP.View;
+import ex2_phoneBook.base.Phonebook;
+
 import java.util.Scanner;
 
 public class App {
@@ -10,7 +15,6 @@ public class App {
     private static Phonebook phoneBook;
     private static Presenter presenter;
     private static Menu menu;
-
 
 
     public static void start() {

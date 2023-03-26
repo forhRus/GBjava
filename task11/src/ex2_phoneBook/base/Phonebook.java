@@ -1,4 +1,6 @@
-package ex2_phoneBook;
+package ex2_phoneBook.base;
+
+import ex2_phoneBook.base.Contact;
 
 import java.util.ArrayList;
 import java.util.List;

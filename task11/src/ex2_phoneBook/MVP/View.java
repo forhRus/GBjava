@@ -1,4 +1,6 @@
-package ex2_phoneBook;
+package ex2_phoneBook.MVP;
+
+import ex2_phoneBook.base.Contact;
 
 import java.util.List;
 import java.util.Scanner;
